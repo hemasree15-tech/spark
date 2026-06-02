@@ -22,10 +22,10 @@ export default function Home() {
   return (
     <main style={{ maxWidth: 480, margin: "0 auto", minHeight: "100vh" }}>
       {screen === "ignition" && (
-        <Ignition sessionId={sessionId} onLaunch={d => { setUniverse(d); setScreen("universe"); }} />
+        <Ignition sessionId={sessionId} onLaunch={(d: any) => { setUniverse(d); setScreen("universe"); }} />
       )}
       {screen === "universe" && universe && (
-        <Universe data={universe} onDive={p => { setPlanet(p); setScreen("dive"); }} onReset={() => { setUniverse(null); setScreen("ignition"); }} />
+        <Universe data={universe} onDive={(p: any) => { setPlanet(p); setScreen("dive"); }} onReset={() => { setUniverse(null); setScreen("ignition"); }} />
       )}
       {screen === "dive" && planet && universe && (
         <DeepDive planet={planet} goal={universe.goal} onBack={() => setScreen("universe")} />
